@@ -502,63 +502,27 @@
     .carousel-logo {
       display: flex;
       align-items: center;
-      gap: .6rem;
-      padding: .75rem 1.5rem;
+      justify-content: center;
+      padding: .85rem 2rem;
       border: 1px solid var(--gray-200);
-      font-size: .88rem;
-      font-weight: 700;
-      white-space: nowrap;
-      letter-spacing: -.01em;
+      background: var(--white);
       transition: border-color var(--transition), box-shadow var(--transition);
       cursor: default;
       user-select: none;
+      height: 72px;
+      min-width: 180px;
     }
     .carousel-logo:hover {
       box-shadow: var(--shadow-sm);
+      border-color: var(--gray-400);
     }
-
-    /* Per-brand colors */
-    .carousel-logo.draftkings {
-      color: #2D6A27;
-      border-color: #d4edcd;
-      background: #f3fbf1;
+    .carousel-logo img {
+      height: 36px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
     }
-    .carousel-logo.draftkings svg { color: #53D337; }
-
-    .carousel-logo.fanduel {
-      color: #1254A4;
-      border-color: #c9ddf7;
-      background: #f0f6ff;
-    }
-    .carousel-logo.fanduel svg { color: #1493FF; }
-
-    .carousel-logo.betmgm {
-      color: #8B6914;
-      border-color: #f0dfa4;
-      background: #fdf8ec;
-    }
-    .carousel-logo.betmgm svg { color: #C9A84C; }
-
-    .carousel-logo.caesars {
-      color: #2B4A1C;
-      border-color: #c5dbb5;
-      background: #f2f8ee;
-    }
-    .carousel-logo.caesars svg { color: #4A8C2A; }
-
-    .carousel-logo.betrivers {
-      color: #0A3566;
-      border-color: #b8d0f0;
-      background: #eef5fd;
-    }
-    .carousel-logo.betrivers svg { color: #1565C0; }
-
-    .carousel-logo.fanatics {
-      color: #9B1520;
-      border-color: #f5c0c4;
-      background: #fef0f1;
-    }
-    .carousel-logo.fanatics svg { color: #E4002B; }
 
     /* ─── FEATURES ──────────────────────────────────────────────── */
     .features { background: var(--off-white); }
@@ -1357,55 +1321,19 @@
     <div class="carousel-track-wrap">
       <div class="carousel-track">
         <!-- Set 1 -->
-        <div class="carousel-logo draftkings">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-          DraftKings
-        </div>
-        <div class="carousel-logo fanduel">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          FanDuel
-        </div>
-        <div class="carousel-logo betmgm">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          BetMGM
-        </div>
-        <div class="carousel-logo caesars">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Caesars Sportsbook
-        </div>
-        <div class="carousel-logo betrivers">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-          BetRivers
-        </div>
-        <div class="carousel-logo fanatics">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Fanatics
-        </div>
+        <div class="carousel-logo"><img src="images/logos/draftkings.png" alt="DraftKings" /></div>
+        <div class="carousel-logo"><img src="images/logos/fanduel.svg" alt="FanDuel" /></div>
+        <div class="carousel-logo"><img src="images/logos/betmgm.png" alt="BetMGM" /></div>
+        <div class="carousel-logo"><img src="images/logos/caesars.png" alt="Caesars Sportsbook" /></div>
+        <div class="carousel-logo"><img src="images/logos/betrivers.svg" alt="BetRivers" /></div>
+        <div class="carousel-logo"><img src="images/logos/fanatics.png" alt="Fanatics" /></div>
         <!-- Set 2 (duplicate for seamless loop) -->
-        <div class="carousel-logo draftkings">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-          DraftKings
-        </div>
-        <div class="carousel-logo fanduel">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          FanDuel
-        </div>
-        <div class="carousel-logo betmgm">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-          BetMGM
-        </div>
-        <div class="carousel-logo caesars">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          Caesars Sportsbook
-        </div>
-        <div class="carousel-logo betrivers">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-          BetRivers
-        </div>
-        <div class="carousel-logo fanatics">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Fanatics
-        </div>
+        <div class="carousel-logo"><img src="images/logos/draftkings.png" alt="DraftKings" /></div>
+        <div class="carousel-logo"><img src="images/logos/fanduel.svg" alt="FanDuel" /></div>
+        <div class="carousel-logo"><img src="images/logos/betmgm.png" alt="BetMGM" /></div>
+        <div class="carousel-logo"><img src="images/logos/caesars.png" alt="Caesars Sportsbook" /></div>
+        <div class="carousel-logo"><img src="images/logos/betrivers.svg" alt="BetRivers" /></div>
+        <div class="carousel-logo"><img src="images/logos/fanatics.png" alt="Fanatics" /></div>
       </div>
     </div>
   </section>
