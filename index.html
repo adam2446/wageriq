@@ -488,18 +488,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: .85rem 2rem;
-      border: 1px solid var(--gray-200);
-      background: var(--white);
-      transition: border-color var(--transition), box-shadow var(--transition);
+      padding: 0 2rem;
       cursor: default;
       user-select: none;
       height: 72px;
-      min-width: 180px;
-    }
-    .carousel-logo:hover {
-      box-shadow: var(--shadow-sm);
-      border-color: var(--gray-400);
+      min-width: 160px;
     }
     .carousel-logo img {
       height: 36px;
@@ -510,18 +503,23 @@
     }
 
     /* ─── FEATURES ──────────────────────────────────────────────── */
-    .features { background: var(--off-white); }
+    .features { background: var(--navy); }
     .features-header { text-align: center; margin-bottom: 3.5rem; }
+    .features-header .section-label {
+      color: var(--teal);
+      background: rgba(14,165,160,.1);
+      border-color: rgba(14,165,160,.2);
+    }
     .features-header h2 {
       font-size: clamp(1.7rem, 3.5vw, 2.5rem);
       font-weight: 800;
       letter-spacing: -.04em;
-      color: var(--gray-800);
+      color: #fff;
       margin-bottom: .85rem;
     }
     .features-header p {
       font-size: 1.05rem;
-      color: var(--gray-600);
+      color: rgba(255,255,255,.55);
       max-width: 520px;
       margin: 0 auto;
     }
@@ -529,59 +527,42 @@
     .features-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      gap: 3.5rem 3rem;
     }
 
     .feature-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 0;
-      padding: 2rem;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      position: relative;
-      overflow: hidden;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: center;
     }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--teal));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform var(--transition);
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: #CBD5E1;
-    }
-    .feature-card:hover::before { transform: scaleX(1); }
+    .feature-card::before { display: none; }
+    .feature-card:hover { transform: none; box-shadow: none; }
 
     .feature-icon {
-      width: 44px; height: 44px;
+      width: 96px; height: 96px;
       border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.25rem;
+      margin: 0 auto 1.75rem;
+      color: #fff;
     }
-    .feature-icon.blue   { background: rgba(37,99,235,.1);  color: var(--accent); }
-    .feature-icon.teal   { background: rgba(14,165,160,.1);  color: var(--teal); }
-    .feature-icon.green  { background: rgba(16,185,129,.1);  color: #10B981; }
-    .feature-icon.purple { background: rgba(139,92,246,.1);  color: #7C3AED; }
+    .feature-icon svg { width: 72px; height: 72px; stroke-width: 1; }
+    .feature-icon.blue, .feature-icon.teal,
+    .feature-icon.green, .feature-icon.purple { background: none; color: #fff; }
 
     .feature-card h3 {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: var(--gray-800);
-      margin-bottom: .5rem;
+      color: #fff;
+      margin-bottom: .6rem;
       letter-spacing: -.02em;
     }
     .feature-card p {
-      font-size: .9rem;
-      color: var(--gray-600);
-      line-height: 1.65;
+      font-size: .95rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.7;
     }
 
     /* ─── HOW IT WORKS ──────────────────────────────────────────── */
