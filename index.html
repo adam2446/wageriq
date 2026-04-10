@@ -511,133 +511,19 @@
 
     /* ─── FEATURES ──────────────────────────────────────────────── */
     .features { background: var(--off-white); }
-
-    /* Graphic area */
-    .features-graphic {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2.5rem;
-    }
-    .features-graphic-inner {
-      position: relative;
-      width: 500px;
-      height: 340px;
-    }
-
-    /* Central document card */
-    .fg-doc {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 160px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 0;
-      padding: 1.25rem 1.25rem 1rem;
-      box-shadow: 0 8px 32px rgba(10,22,40,.12);
-      z-index: 2;
-    }
-    .fg-doc-bar {
-      height: 8px;
-      background: linear-gradient(90deg, var(--accent), var(--teal));
-      margin-bottom: 1rem;
-    }
-    .fg-doc-row {
-      height: 7px;
-      background: var(--gray-200);
-      border-radius: 0;
-      margin-bottom: .6rem;
-    }
-    .fg-doc-row.short { width: 65%; }
-    .fg-doc-divider {
-      height: 1px;
-      background: var(--gray-200);
-      margin: .9rem 0;
-    }
-    .fg-doc-stat-label {
-      font-size: .65rem;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--gray-600);
-      margin-bottom: .2rem;
-    }
-    .fg-doc-stat-value {
-      font-size: 1.3rem;
+    .features-header { text-align: center; margin-bottom: 3.5rem; }
+    .features-header h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
       font-weight: 800;
-      color: var(--teal);
-      letter-spacing: -.03em;
+      letter-spacing: -.04em;
+      color: var(--gray-800);
+      margin-bottom: .85rem;
     }
-    .fg-doc-badge {
-      margin-top: .9rem;
-      display: inline-block;
-      background: rgba(14,165,160,.12);
-      color: var(--teal);
-      font-size: .65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      padding: .25rem .6rem;
-      border-radius: 0;
-    }
-
-    /* Orbiting nodes */
-    .fg-node {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .35rem;
-      z-index: 3;
-    }
-    .fg-node svg {
-      display: block;
-      padding: .6rem;
-      width: 44px;
-      height: 44px;
-      box-sizing: content-box;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      box-shadow: 0 4px 16px rgba(10,22,40,.08);
-    }
-    .fg-node span {
-      font-size: .7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .07em;
+    .features-header p {
+      font-size: 1.05rem;
       color: var(--gray-600);
-    }
-    /* top-left: Import */
-    .fg-node-1 { top: 18px;  left: 36px;  color: var(--accent); }
-    /* top-right: AI */
-    .fg-node-2 { top: 18px;  right: 36px; color: var(--teal); }
-    /* bottom-left: File */
-    .fg-node-3 { bottom: 18px; left: 36px;  color: var(--teal); }
-    /* bottom-right: Secure */
-    .fg-node-4 { bottom: 18px; right: 36px; color: var(--accent); }
-
-    /* SVG connector lines */
-    .fg-lines {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* "We" statement */
-    .features-statement {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .features-statement p {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--gray-700, #374151);
-      max-width: 560px;
+      max-width: 520px;
       margin: 0 auto;
-      line-height: 1.6;
     }
 
     .features-grid {
@@ -1439,55 +1325,15 @@
   <!-- ─── FEATURES ────────────────────────────────────────────────── -->
   <section class="features" id="features">
     <div class="container">
-
-      <!-- Big graphic -->
-      <div class="features-graphic fade-in">
-        <div class="features-graphic-inner">
-          <!-- Central document -->
-          <div class="fg-doc">
-            <div class="fg-doc-bar"></div>
-            <div class="fg-doc-row"></div>
-            <div class="fg-doc-row short"></div>
-            <div class="fg-doc-divider"></div>
-            <div class="fg-doc-stat">
-              <div class="fg-doc-stat-label">Taxable Income</div>
-              <div class="fg-doc-stat-value">$1,044</div>
-            </div>
-            <div class="fg-doc-badge">IRS Ready</div>
-          </div>
-          <!-- Orbiting nodes -->
-          <div class="fg-node fg-node-1">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-            <span>Import</span>
-          </div>
-          <div class="fg-node fg-node-2">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-            <span>AI</span>
-          </div>
-          <div class="fg-node fg-node-3">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            <span>File</span>
-          </div>
-          <div class="fg-node fg-node-4">
-            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-            <span>Secure</span>
-          </div>
-          <!-- Connecting lines -->
-          <svg class="fg-lines" viewBox="0 0 500 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="250" y1="170" x2="80" y2="60"  stroke="rgba(37,99,235,.18)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="250" y1="170" x2="420" y2="60" stroke="rgba(14,165,160,.18)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="250" y1="170" x2="80" y2="290" stroke="rgba(14,165,160,.18)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="250" y1="170" x2="420" y2="290" stroke="rgba(37,99,235,.18)" stroke-width="1.5" stroke-dasharray="5 4"/>
-          </svg>
+      <div class="features-header fade-in">
+        <div class="section-label">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Features
         </div>
+        <h2>Everything you need at tax time</h2>
+        <p>Stop manually totaling spreadsheets. WagerIQ does the heavy lifting so you can file with confidence.</p>
       </div>
 
-      <!-- "We" statement -->
-      <div class="features-statement fade-in">
-        <p>We handle every step of your gambling tax calculation, so you can file accurately and move on.</p>
-      </div>
-
-      <!-- Feature cards -->
       <div class="features-grid">
         <div class="feature-card fade-in">
           <div class="feature-icon blue">
