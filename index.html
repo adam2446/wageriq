@@ -952,6 +952,7 @@
       font-family: 'SF Mono', 'Fira Code', monospace;
       font-size: .78rem;
       line-height: 1.7;
+      resize: vertical;
       color: var(--gray-600);
       background: var(--gray-100);
       border: 1px solid var(--gray-200);
@@ -959,7 +960,17 @@
       min-height: 200px;
       white-space: pre;
       overflow-x: auto;
-      user-select: none;
+      user-select: text;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      border-radius: 0;
+      display: block;
+      cursor: text;
+    }
+    .demo-textarea:focus {
+      border-color: var(--accent);
+      background: #fff;
     }
     .demo-textarea-hint {
       font-size: .72rem;
@@ -1463,7 +1474,7 @@
             <div class="demo-col">
               <div class="demo-col-label">Paste your exported bet history</div>
               <div class="demo-textarea-wrap">
-                <div class="demo-textarea" id="demoInput">Date,Platform,Event,Wager,Payout,Result
+                <textarea class="demo-textarea" id="demoInput" spellcheck="false">Date,Platform,Event,Wager,Payout,Result
 01/04/2024,DraftKings,Chiefs vs Raiders,-$25.00,$0.00,Loss
 01/07/2024,FanDuel,NFL Parlay,-$15.00,$42.50,Win
 01/12/2024,BetMGM,Lakers ML,-$50.00,$0.00,Loss
@@ -1471,13 +1482,13 @@
 02/03/2024,FanDuel,NHL Puck Line,-$20.00,$0.00,Loss
 02/14/2024,Caesars,NBA Spread,-$30.00,$57.00,Win
 02/22/2024,DraftKings,UFC 298,-$40.00,$0.00,Loss
-03/05/2024,BetMGM,March Madness,-$75.00,$210.00,Win</div>
+03/05/2024,BetMGM,March Madness,-$75.00,$210.00,Win</textarea>
                 <div class="demo-textarea-hint">CSV, Excel, or plain text accepted</div>
               </div>
             </div>
             <div class="demo-col demo-col-right">
               <div class="demo-col-label">Detected platforms</div>
-              <div class="demo-platform-list">
+              <div class="demo-platform-list" id="demoPlatformList">
                 <div class="demo-platform-row">
                   <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                   DraftKings
@@ -1497,7 +1508,7 @@
               </div>
               <div class="demo-col-label" style="margin-top:1.25rem;">Records found</div>
               <div class="demo-stat-row">
-                <span class="demo-big-num">8</span>
+                <span class="demo-big-num" id="demoTxCount">8</span>
                 <span class="demo-big-label">transactions</span>
               </div>
             </div>
@@ -1816,6 +1827,29 @@
         if (i + 1 === n) t.classList.add('active');
       });
     }
+
+    const KNOWN_PLATFORMS = ['DraftKings','FanDuel','BetMGM','Caesars','BetRivers','Fanatics','PointsBet','Barstool','WynnBET','Hard Rock'];
+    const CHECK_SVG = `<svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`;
+
+    function parseDemoInput() {
+      const raw = document.getElementById('demoInput').value;
+      const lines = raw.split('\n').filter(l => l.trim() && !l.toLowerCase().startsWith('date'));
+      const found = new Set();
+      lines.forEach(line => {
+        KNOWN_PLATFORMS.forEach(p => { if (line.includes(p)) found.add(p); });
+      });
+      // Update transaction count
+      document.getElementById('demoTxCount').textContent = lines.length;
+      // Update platform list
+      const list = document.getElementById('demoPlatformList');
+      if (found.size === 0) {
+        list.innerHTML = '<div style="color:var(--gray-400);font-size:.85rem;">No platforms detected</div>';
+      } else {
+        list.innerHTML = [...found].map(p => `<div class="demo-platform-row">${CHECK_SVG} ${p}</div>`).join('');
+      }
+    }
+
+    document.getElementById('demoInput').addEventListener('input', parseDemoInput);
 
     document.getElementById('runAnalysisBtn').addEventListener('click', () => {
       document.getElementById('demo-step-1').style.display = 'none';
